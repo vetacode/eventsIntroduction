@@ -37,6 +37,8 @@ Some properties of event object:
   <body>
     <input id="elem" type="button" value="Click Me!" />
 
+    <input type="button" onclick="alert(event.type)" value="Event type" />
+
     <script>
       elem.onclick = function clickMe(e) {
         console.log(`${e.type} at ${e.currentTarget}`);
