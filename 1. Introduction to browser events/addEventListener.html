@@ -1,0 +1,43 @@
+<!-- 
+addEventListener and removeEventListener
+
+Syntax:
+element.addEventListener(event, handler, [options]); 
+
+options is An additional optional object with properties:
+1. once: if true, then the listener is automatically removed after it triggers.
+2. capture: the phase where to handle the event, to be covered later in the chapter Bubbling and capturing. For historical reasons, options can also be false/true, that’s the same as {capture: false/true}.
+3. passive: if true, then the handler will not call preventDefault(), we’ll explain that later in Browser default actions.
+
+Syntax:
+element.removeEventListener(event, handler, [options]);
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="elem" type="button" value="Click Me!" />
+
+    <script>
+      function handler1() {
+        alert('Welcome again!');
+      }
+      function handler2() {
+        alert('How Are You?');
+      }
+
+      elem.onclick = alert('Hello World!');
+
+      elem.addEventListener('click', handler1);
+      elem.addEventListener('click', handler2);
+      // elem.removeEventListener('click', handler1);
+      // elem.removeEventListener('click', handler2);
+    </script>
+  </body>
+</html>
