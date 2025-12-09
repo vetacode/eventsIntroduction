@@ -39,9 +39,9 @@ element.removeEventListener(event, handler, [options]);
         alert('How Are You?');
       }
 
-      elem.onclick = alert('Hello World!');
-
-      elem.addEventListener('tes', handler1);
+      elem.onclick = () => alert('Hello World!'); //using DOM event onclick
+      elem.addEventListener('click', () => alert('Hello lagi!')); //using addEventListener
+      elem.addEventListener('click', handler1);
       elem.addEventListener('click', handler2);
 
       // elem.removeEventListener('click', handler1);
