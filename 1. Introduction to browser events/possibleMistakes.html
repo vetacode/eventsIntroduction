@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="button">click me!</button>
+
+    <!-- inline style should includes parenthesis (): sayThanks() -->
+    <input type="button" value="input" onclick="sayThanks()" />
+
+    <script>
+      function sayThanks() {
+        alert('Thank You!!');
+      }
+
+      button.onclick = sayThanks; //RIGHT, without ()
+      // button.onclick = sayThanks(); //WRONG!! This will runs immediately ONCE!
+    </script>
+  </body>
+</html>
