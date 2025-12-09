@@ -23,10 +23,12 @@
 </html>
 
 <!-- OTHER MISTAKES:
-Don’t use setAttribute for handlers:
-// a click on <body> will generate errors,
-// because attributes are always strings, function becomes a string
+#Don’t use setAttribute for handlers:
+  a click on <body> will generate errors,
+  because attributes are always strings, function becomes a string
 
-document.body.setAttribute('onclick', function() { alert(1) });
+  document.body.setAttribute('onclick', function() { alert(1) });
 
+#DOM-property case matters.
+  Assign a handler to elem.onclick, not elem.ONCLICK, because DOM properties are case-sensitive.
 -->
