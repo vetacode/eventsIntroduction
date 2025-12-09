@@ -9,6 +9,17 @@ Handlers are a way to run JavaScript code in case of user actions. -->
     <title>Document</title>
   </head>
   <body>
-    <input type="button" value="click" onclick="alert('Click!')" />
+    <input type="button" value="Count the Rabbits!" onclick="countRabbits()" />
+
+    <script>
+      function countRabbits() {
+        for (let i = 1; i <= 3; i++) {
+          alert('Rabbit number ' + i);
+        }
+      }
+    </script>
   </body>
 </html>
+
+<!-- NOTES: 
+HTML attribute names are not case-sensitive, so ONCLICK works as well as onClick and onCLICK… But usually attributes are lowercased: onclick. -->
