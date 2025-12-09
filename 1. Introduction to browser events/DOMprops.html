@@ -18,6 +18,10 @@
       button.onclick = function () {
         alert('Hello!'); //this will replaced inline onclick
       };
+
+      button.onclick = null; //the button is still there but not functioning
     </script>
   </body>
 </html>
+
+<!-- NOTES: To remove a handler – assign elem.onclick = null -->
