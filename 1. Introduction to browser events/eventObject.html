@@ -1,0 +1,47 @@
+<!-- When an event happens, the browser creates an event object, puts details into it and passes it as an argument to the handler.
+ 
+Some properties of event object:
+
+1. event.type: Event type, here it’s "click".
+2. event.currentTarget: Element that handled the event. That’s exactly the same as this, unless the handler is an arrow function, or its this is bound to something else, then we can get the element from event.currentTarget.
+3. event.clientX / event.clientY: Window-relative coordinates of the cursor, for pointer events.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #elem {
+        padding: 10px 20px;
+        background-color: lightgreen;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      #elem:active {
+        background-color: lightskyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="elem" type="button" value="Click Me!" />
+
+    <script>
+      elem.onclick = function clickMe(e) {
+        console.log(`${e.type} at ${e.currentTarget}`);
+        console.log(`coordinates: ${e.clientX}:${e.clientY}`);
+      };
+    </script>
+  </body>
+</html>
