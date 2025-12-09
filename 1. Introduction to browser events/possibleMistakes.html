@@ -21,3 +21,12 @@
     </script>
   </body>
 </html>
+
+<!-- OTHER MISTAKES:
+Don’t use setAttribute for handlers:
+// a click on <body> will generate errors,
+// because attributes are always strings, function becomes a string
+
+document.body.setAttribute('onclick', function() { alert(1) });
+
+-->
