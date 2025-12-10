@@ -61,6 +61,10 @@ Use properties event.clientX/event.clientY for click coordinates. -->
 
       field.onclick = function (e) {
         let fieldCoords = this.getBoundingClientRect();
+        console.log(fieldCoords);
+
+        console.log(e.clientY);
+        console.log('clientTop:', field.clientTop); //border height
 
         let ballCoords = {
           top:
