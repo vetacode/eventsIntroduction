@@ -1,0 +1,34 @@
+<!-- Which handlers run?
+importance: 5
+There’s a button in the variable. There are no handlers on it.
+
+Which handlers run on click after the following code? Which alerts show up?
+
+button.addEventListener("click", () => alert("1"));//runs
+
+button.removeEventListener("click", () => alert("1"));//not runs
+
+button.onclick = () => alert(2);//runs
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //right way to remove the function:
+      function handler() {
+        alert(1);
+      }
+
+      button.addEventListener('click', handler);
+      button.removeEventListener('click', handler);
+    </script>
+  </body>
+</html>
