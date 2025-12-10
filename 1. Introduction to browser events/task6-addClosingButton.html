@@ -94,7 +94,10 @@ The result should look like this: -->
           '<button class="remove-button">[x]</button>'
         );
         console.log(pane);
-        pane.firstChild.onclick = () => pane.remove();
+        let xBtn = pane.querySelector('.remove-button');
+        // xBtn.onclick = () => pane.remove();
+        //OR
+        xBtn.addEventListener('click', () => pane.remove());
       }
     </script>
   </body>
