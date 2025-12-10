@@ -1,0 +1,70 @@
+<!-- Create a sliding menu
+importance: 5
+Create a menu that opens/collapses on click:
+
+
+P.S. HTML/CSS of the source document is to be modified. -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      #button {
+        cursor: pointer;
+        width: 160px;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: end;
+        transition: 0.3s all;
+        border: 1px solid aqua;
+        background-color: aqua;
+      }
+
+      #button:hover {
+        background-color: rgb(121, 226, 226);
+      }
+
+      #button:active {
+        background-color: greenyellow;
+      }
+
+      .menu .title::before {
+        content: '▶ ';
+        color: green;
+      }
+
+      .menu.open .title::before {
+        content: '▼ ';
+        color: salmon;
+      }
+
+      .menu.open ul {
+        display: block;
+      }
+
+      .menu ul {
+        display: none;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sweeties" class="menu">
+      <span id="button" class="title"> Sweeties (click me)! </span>
+      <ul id="lists">
+        <li>Cake</li>
+        <li>Donut</li>
+        <li>Honey</li>
+      </ul>
+    </div>
+
+    <script>
+      function btnClick() {
+        sweeties.classList.toggle('open');
+      }
+
+      button.addEventListener('click', btnClick);
+    </script>
+  </body>
+</html>
