@@ -61,33 +61,62 @@ Use properties event.clientX/event.clientY for click coordinates. -->
 
       field.onclick = function (e) {
         let fieldCoords = this.getBoundingClientRect();
-        console.log(fieldCoords);
+        // console.log(fieldCoords);
 
-        console.log(e.clientY);
+        console.log('clientY:', e.clientY);
+        console.log('fieldCoordsTop: ', fieldCoords.top);
         console.log('clientTop:', field.clientTop); //border height
+        console.log('ball clientHeight', ball.clientHeight);
 
+        // ballCoords = posisi bola (LEFT dan TOP) relatif terhadap field,
+        // dihitung agar center bola berada tepat di titik klik pengguna.
         let ballCoords = {
+          // top = posisi vertikal bola (dari atas field),
+          // dihitung dari: klikY - posisi field - border field - setengah tinggi bola
           top:
             e.clientY -
             fieldCoords.top -
             field.clientTop -
             ball.clientHeight / 2,
+
+          // left = posisi horizontal bola (dari kiri field),
+          // dihitung dari: klikX - posisi field - border field - setengah lebar bola
           left:
             e.clientX -
             fieldCoords.left -
             field.clientLeft -
             ball.clientWidth / 2,
         };
+        // console.log('top:', ballCoords.top);
 
-        if (ballCoords.top < 0) ballCoords.top = 0;
-        if (ballCoords.left < 0) ballCoords.left = 0;
+        // console.log(field.clientWidth); //200px
+        // console.log(field.clientWidth + field.clientLeft); //210px
 
-        if (ballCoords.left + ball.clientWidth > field.clientWidth) {
-          ballCoords.left = field.clientWidth - ball.clientWidth;
-        }
-        if (ballCoords.top + ball.clientHeight > field.clientHeight) {
-          ballCoords.top = field.clientHeight - ball.clientHeight;
-        }
+        // if (ballCoords.top < 0) ballCoords.top = 0;
+        // if (ballCoords.left < 0) ballCoords.left = 0;
+
+        // if (ballCoords.left + ball.clientWidth > field.clientWidth) {
+        //   ballCoords.left = field.clientWidth - ball.clientWidth;
+        // }
+        // if (ballCoords.top + ball.clientHeight > field.clientHeight) {
+        //   ballCoords.top = field.clientHeight - ball.clientHeight;
+        // }
+
+        // console.log('field.clientHeight:', field.clientHeight);
+        // console.log(field.clientHeight + ballCoords.top == ball.clientHeight);
+
+        // batasi area X
+        ballCoords.left = Math.max(
+          0,
+          Math.min(ballCoords.left, field.clientWidth - ball.clientWidth)
+        );
+
+        // batasi area Y
+        ballCoords.top = Math.max(
+          0,
+          Math.min(ballCoords.top, field.clientHeight - ball.clientHeight)
+        );
+
         ball.style.left = ballCoords.left + 'px';
         ball.style.top = ballCoords.top + 'px';
       };
