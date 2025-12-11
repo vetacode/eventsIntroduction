@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        padding: 20px;
+        margin: 5px;
+      }
+
+      span,
+      strong {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    Click pada area kuning (span) akan menjalankan counter
+    <br />
+    Karena menggunakan closest()
+    <ul>
+      <li>
+        <button type="button" value="1" data-counter>
+          <span>Counter 1</span>
+        </button>
+      </li>
+
+      <li>
+        <button type="button" value="2" data-counter>
+          <strong>Counter 2</strong>
+        </button>
+      </li>
+
+      <li>
+        <button type="button" data-counter>
+          <span>Counter 0</span>
+        </button>
+      </li>
+    </ul>
+
+    <script>
+      function withClosest(event) {
+        let counterBtn = event.target.closest('[data-counter]');
+        if (counterBtn) {
+          counterBtn.value++;
+          counterBtn.textContent = 'Counter ' + counterBtn.value;
+        }
+      }
+
+      document.querySelector('ul').addEventListener('click', withClosest);
+    </script>
+  </body>
+</html>
