@@ -1,0 +1,21 @@
+<!-- Syntax:
+
+1. event.stopPropagation(): to make handler decide that the event has been fully processed and stop the bubbling.
+2. event.stopImmediatePropagation(): To stop the bubbling and prevent handlers on the current element from running. After it no other handlers execute.
+
+Caveats: Don’t stop bubbling without a need!
+Bubbling is convenient. Don’t stop it without a real need. Sometimes event.stopPropagation() creates hidden pitfalls that later may become problems. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <body onclick="alert(`the bubbling doesn't reach here`)">
+      <button onclick="event.stopPropagation()">Click me</button>
+    </body>
+  </body>
+</html>
