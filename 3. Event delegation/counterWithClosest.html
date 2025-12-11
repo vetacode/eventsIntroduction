@@ -6,10 +6,15 @@
     <title>Document</title>
   </head>
   <body>
-    <ul>
-      <li><button type="button" value="1" data-counter>Counter 1</button></li>
-      <li><button type="button" value="2" data-counter>Counter 2</button></li>
-    </ul>
+    <button data-counter>
+      <span>Counter 1</span>
+    </button>
+    <button data-counter>
+      <span>Counter 2</span>
+    </button>
+    <button data-counter>
+      <span>Counter 3</span>
+    </button>
 
     <script>
       function closestCounter(event) {
@@ -18,12 +23,8 @@
         counterBtn.textContent = 'Counter ' + counterBtn.value;
       }
 
-      // let lis = document.querySelectorAll('li');
-      // lis.forEach((li) => li.addEventListener('click', closestCounter));
-
-      //OR more efficient use:
-      let ul = document.querySelector('ul');
-      ul.addEventListener('click', closestCounter); //eventlistener hanya dibuat sekali di parent node (document)
+      let btns = document.querySelectorAll('button');
+      btns.forEach((btn) => btn.addEventListener('click', closestCounter)); //eventlistener hanya dibuat sekali di parent node (document)
     </script>
   </body>
 </html>
