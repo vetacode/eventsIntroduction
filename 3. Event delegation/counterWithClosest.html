@@ -8,24 +8,22 @@
   <body>
     <ul>
       <li><button type="button" value="1" data-counter>Counter 1</button></li>
-      <li>Counter 2: <button type="button" value="2" data-counter /></li>
-      <li>Counter 3: <button type="button" value="5" data-counter /></li>
-      <li>Counter 4: <button type="button" value="10" data-counter /></li>
-      <li>Counter 5: <button type="button" value="51" data-counter /></li>
+      <li><button type="button" value="2" data-counter>Counter 2</button></li>
     </ul>
 
     <script>
       function closestCounter(event) {
         let counterBtn = event.target.closest('[data-counter]');
         if (counterBtn) counterBtn.value++;
+        counterBtn.textContent = 'Counter ' + counterBtn.value;
       }
-      let lis = document.querySelectorAll('li');
-      lis.forEach(li => li.addEventListener('click', closestCounter);)
 
+      // let lis = document.querySelectorAll('li');
+      // lis.forEach((li) => li.addEventListener('click', closestCounter));
 
-
-
-      //eventlistener hanya dibuat sekali di parent node (document)
+      //OR more efficient use:
+      let ul = document.querySelector('ul');
+      ul.addEventListener('click', closestCounter); //eventlistener hanya dibuat sekali di parent node (document)
     </script>
   </body>
 </html>
