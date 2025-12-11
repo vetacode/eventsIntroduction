@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        padding: 20px;
+        margin: 5px;
+      }
+
+      span,
+      strong {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    Click pada area kuning (span) tidak akan menjalankan counter karena
+    <br />
+    Karena tanpa closest()
+    <ul>
+      <li>
+        <button type="button" value="1" data-counter>
+          <span>Counter 1</span>
+        </button>
+      </li>
+
+      <li>
+        <button type="button" value="2" data-counter>
+          <strong>Counter 2</strong>
+        </button>
+      </li>
+
+      <li>
+        <button type="button" value="5" data-counter>
+          <span>Counter 3</span>
+        </button>
+      </li>
+    </ul>
+
+    <script>
+      function noClosest(event) {
+        // GAGAL: hanya bekerja kalau klik langsung ke <button>
+        if (event.target.dataset.counter !== undefined) {
+          event.target.value++;
+          event.target.textContent = 'Counter ' + event.target.value;
+        }
+      }
+
+      document.querySelector('ul').addEventListener('click', noClosest);
+    </script>
+  </body>
+</html>
