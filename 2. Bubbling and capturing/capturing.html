@@ -6,7 +6,12 @@ elem.addEventListener(..., true) //just "true" is an alias to {capture: true}
 
 two possible values of the capture option:
 1. If it’s false (default), then the handler is set on the bubbling phase.
-2. If it’s true, then the handler is set on the capturing phase. -->
+2. If it’s true, then the handler is set on the capturing phase. 
+
+Notes:
+There’s a property event.eventPhase that tells us the number of the phase on which the event was caught.
+
+-->
 
 <!DOCTYPE html>
 <html lang="en">
