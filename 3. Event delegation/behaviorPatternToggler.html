@@ -6,19 +6,22 @@
     <title>Document</title>
   </head>
   <body>
-    <button data-toggle-id="subscribe-mail">Show the subscription form</button>
+    <button data-toggle-id="subscribe-mail" style="margin-bottom: 5px">
+      Show the subscription form
+    </button>
 
     <form id="subscribe-mail" hidden>Your mail: <input type="email" /></form>
 
     <script>
-      document.addEventListener('click', function (event) {
-        let id = event.target.dataset.toggleId;
-        if (!id) return;
+      function showForm(event) {
+        let dataToggleId = event.target.dataset.toggleId;
+        if (!dataToggleId) return;
 
-        let elem = document.getElementById(id);
-
+        let elem = document.getElementById(dataToggleId);
         elem.hidden = !elem.hidden;
-      });
+      }
+
+      document.addEventListener('click', showForm);
     </script>
   </body>
 </html>
