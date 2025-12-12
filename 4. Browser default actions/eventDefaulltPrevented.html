@@ -11,10 +11,30 @@ it returns TRUE when default action was prevented, and otherwise
     <title>Document</title>
   </head>
   <body>
-    <button>Right-click shows browser context menu</button>
+    <button id="btn">Right-click shows browser context menu</button>
 
-    <button oncontextmenu="alert('Draw our menu'); return false">
+    <button
+      oncontextmenu="alert('Draw our menu'); event.stopPropagation(); return false"
+    >
       Right-click shows our context menu
     </button>
+
+    <p>Right-click here for the document context menu</p>
+    <button id="elem">Right-click here for the button context menu</button>
+
+    <script>
+      elem.oncontextmenu = function (event) {
+        event.preventDefault();
+        event.stopPropagation(); // ketika fn event ini runs, cegah bubbling ke parent (document) event
+        alert('Button context menu');
+      };
+
+      document.oncontextmenu = function (event) {
+        if (event.target.id === 'btn') return;
+        event.preventDefault();
+
+        alert('Document context menu');
+      };
+    </script>
   </body>
 </html>
