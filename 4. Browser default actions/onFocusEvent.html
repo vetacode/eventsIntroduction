@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="input" value="Focus works" onfocus="this.value=''" />
+
+    <!-- onfocus attr also ignored coz onmousedown prevents the second event -->
+    <input
+      type="input"
+      value="Focus doesnt work"
+      onmousedown="return false"
+      onfocus="this.value=''"
+      name=""
+      id=""
+    />
+  </body>
+</html>
+
+<!-- The event cancellation flow:
+
+1. The mousedown event handler returns false
+2. Returning false cancels the default action of the event
+
+For input elements, the default action of mousedown is to give FOCUS
+
+3. the input never receives focus
+4. focus event never fires
+5. onfocus attribute is ignored -->
