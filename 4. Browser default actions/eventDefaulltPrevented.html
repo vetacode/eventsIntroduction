@@ -1,0 +1,20 @@
+<!-- event.defaultPrevented is a property to signal other event handlers that the event was handled, so it still can propagate further, rather than stop results of event.stopPropagation().
+ 
+it returns TRUE when default action was prevented, and otherwise
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Right-click shows browser context menu</button>
+
+    <button oncontextmenu="alert('Draw our menu'); return false">
+      Right-click shows our context menu
+    </button>
+  </body>
+</html>
