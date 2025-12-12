@@ -25,15 +25,21 @@ it returns TRUE when default action was prevented, and otherwise
     <script>
       elem.oncontextmenu = function (event) {
         event.preventDefault();
-        event.stopPropagation(); // ketika fn event ini runs, cegah bubbling ke parent (document) event
+        // event.stopPropagation(); // ketika fn event ini runs, cegah bubbling ke parent (document) event
         alert('Button context menu');
       };
 
       document.oncontextmenu = function (event) {
-        if (event.target.id === 'btn') return;
+        // if (event.target.id === 'btn') return;
+        if (event.defaultPrevented) return;
         event.preventDefault();
 
         alert('Document context menu');
+      };
+
+      window.oncontextmenu = function (event) {
+        event.preventDefault();
+        alert('It reach window'); //using event.defaultPrevented on document.oncontextmenu will still let bubbling reach window
       };
     </script>
   </body>
