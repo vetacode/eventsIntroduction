@@ -1,0 +1,18 @@
+<!-- 2 ways to prevent browser actions:
+1. event.preventDefault().
+2. If the handler is assigned using on<event>, returning false. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/" onclick="return false">Click here</a>
+    <br />
+    <!-- OR -->
+    <a href="/" onclick="event.preventDefault()">Or Here</a>
+  </body>
+</html>
