@@ -33,18 +33,31 @@ The content may have nested tags. Inside links too, like <a href=".."><i>...</i>
     </fieldset>
 
     <script>
-      let contents = document.getElementById('contents');
-      let aHrefs = contents.querySelectorAll('a');
-      for (let aHref of aHrefs) {
-        aHref.onclick = function (e) {
-          // let answer = confirm('Are you sure want to proceed?');
-          // if (answer === false) {
-          //   e.preventDefault();
-          // }
-          // OR
-          if (!confirm('Are you sure want to proceed?')) e.preventDefault();
-        };
-      }
+      // let contents = document.getElementById('contents');
+      // let aHrefs = contents.querySelectorAll('a');
+      // for (let aHref of aHrefs) {
+      //   aHref.onclick = function (e) {
+      //     // let answer = confirm('Are you sure want to proceed?');
+      //     // if (answer === false) {
+      //     //   e.preventDefault();
+      //     // }
+      //     // OR
+      //     if (!confirm('Are you sure want to proceed?')) e.preventDefault();
+      //   };
+      // }
+
+      contents.onclick = function (event) {
+        function handleLink(href) {
+          let isLeaving = confirm(`Leave for ${href}?`);
+          if (!isLeaving) return false;
+        }
+
+        let target = event.target.closest('a');
+
+        if (target && contents.contains(target)) {
+          return handleLink(target.getAttribute('href'));
+        }
+      };
     </script>
   </body>
 </html>
