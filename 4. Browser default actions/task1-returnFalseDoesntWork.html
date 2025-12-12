@@ -1,0 +1,51 @@
+<!-- Why "return false" doesn't work?
+importance: 3
+Why in the code below return false doesn’t work at all?
+
+<script>
+  function handler() {
+    alert( "..." );
+    return false;
+  }
+</script>
+
+<a href="https://w3.org" onclick="handler()">the browser will go to w3.org</a>
+
+The browser follows the URL on click, but we don’t want it.
+
+How to fix? -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function handler(e) {
+        alert('...');
+        e.preventDefault();
+      }
+
+      // OR
+      // function handler() {
+      //   alert('...');
+      //   return false;
+      // }
+    </script>
+
+    <a href="https://w3.org" onclick="handler(event)"
+      >the browser will go to w3.org</a
+    >
+    <!-- OR -->
+    <!-- <a href="https://w3.org" onclick="return handler()"
+      >the browser will go to w3.org</a
+    > -->
+    <!-- OR -->
+    <!-- <a href="https://w3.org" onclick="return false"
+      >the browser will go to w3.org</a
+    > -->
+  </body>
+</html>
