@@ -1,0 +1,17 @@
+<!-- Create Event obj:
+let event = new Event(type[, options]);
+
+Arguments:
+
+type – event type, a string like "click" or our own like "my-event".
+
+options – the object with two optional properties:
+
+bubbles: true/false – if true, then the event bubbles.
+cancelable: true/false – if true, then the “default action” may be prevented. Later we’ll see what it means for custom events.
+By default both are false: {bubbles: false, cancelable: false}. -->
+
+<!-- event.isTrusted
+There is a way to tell a “real” user event from a script-generated one.
+
+The property event.isTrusted is true for events that come from real user actions and false for script-generated events. -->
