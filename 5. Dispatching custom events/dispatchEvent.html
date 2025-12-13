@@ -12,7 +12,7 @@
       let event = new Event('click');
       elem.dispatchEvent(event);
 
-      console.log(event.isTrusted); //false. coz its a custom event
+      console.log(event.isTrusted); //false. coz its a custom event => menandakan action 'click' bukan dari user action, tapi dari script dispatchEvent() => shg terjadi autoclick di awal
     </script>
   </body>
 </html>
