@@ -21,7 +21,7 @@
         border: solid 1px #ccc;
         width: 100px;
         height: 100px;
-        padding: 3px;
+        padding: 13px;
         margin: 2px;
         float: left;
       }
@@ -78,21 +78,27 @@
           ><img src="https://en.js.cx/gallery/img6-thumb.jpg"
         /></a>
       </li>
+      <li>
+        <a href="https://example.com" id="more">More photos</a>
+      </li>
     </ul>
 
     <script>
       thumbs.onclick = function (e) {
         let thumbnail = e.target.closest('a');
-
         if (!thumbnail) return;
-        showThumbnail(thumbnail.href, thumbnail.title);
         e.preventDefault();
+
+        // showThumbnail(thumbnail.href, thumbnail.title);
+        //OR langsung pake ini:
+        largeImg.src = thumbnail.href;
+        largeImg.alt = thumbnail.title;
       };
 
-      function showThumbnail(href, title) {
-        largeImg.src = href;
-        largeImg.alt = title;
-      }
+      // function showThumbnail(href, title) {
+      //   largeImg.src = href;
+      //   largeImg.alt = title;
+      // }
     </script>
   </body>
 </html>
