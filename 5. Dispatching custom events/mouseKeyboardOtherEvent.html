@@ -1,0 +1,30 @@
+<!-- short list of classes for UI Events from the UI Event specification:
+
+UIEvent
+FocusEvent
+MouseEvent
+WheelEvent
+KeyboardEvent
+… -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let event = new MouseEvent('click', {
+        //cannot use generic event: new Event()
+        bubbles: true,
+        cancelable: true,
+        clientX: 100,
+        clientY: 100,
+      });
+
+      alert(event.clientX); // 100
+    </script>
+  </body>
+</html>
