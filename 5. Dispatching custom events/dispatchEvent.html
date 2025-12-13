@@ -11,6 +11,8 @@
     <script>
       let event = new Event('click');
       elem.dispatchEvent(event);
+
+      console.log(event.isTrusted); //false. coz its a custom event
     </script>
   </body>
 </html>
